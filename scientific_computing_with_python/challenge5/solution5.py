@@ -39,24 +39,16 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 
         hatCopy = copy.deepcopy(hat)
         draw_result = hatCopy.draw(num_balls_drawn)
-        expected_colours_matched = 0
+        expected_colours_matched = []
 
         for colour in expected_balls.keys():
-            expected_total = expected_balls[colour]
+            if draw_result.count(colour) >= expected_balls[colour]:
+                expected_colours_matched.append(True)
+            else:
+                expected_colours_matched.append(False)
+                break
 
-            colour_matches = 0
-            j = 0
-            while (colour_matches < expected_total) and (j < len(draw_result)):
-                if draw_result[j] == colour:
-                    colour_matches += 1
-                    del[draw_result[j]]
-                else:
-                    j += 1
-
-            if colour_matches == expected_total:
-                expected_colours_matched += 1
-
-        if expected_colours_matched == len(expected_balls.keys()):
+        if (all(expected_colours_matched)):
             successful_matches += 1
 
     return successful_matches / round(num_experiments, 2)
