@@ -41,7 +41,7 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
         draw_result = hatCopy.draw(num_balls_drawn)
         expected_colours_matched = []
 
-        for colour in expected_balls.keys():
+        for colour in expected_balls:
             if draw_result.count(colour) >= expected_balls[colour]:
                 expected_colours_matched.append(True)
             else:
