@@ -1,6 +1,7 @@
 import pandas as pd
 
 def calculate_demographic_data():
+    # Skip initial space was not needed in the solution that I posted on Replit
     df = pd.read_csv("adult_data.csv", skipinitialspace=True)
 
     # Create a series that lists the number of people for each race in the data
@@ -61,4 +62,3 @@ if __name__ == "__main__":
 
     for item in result:
         print(f'{item}: {result[item]}')
-
